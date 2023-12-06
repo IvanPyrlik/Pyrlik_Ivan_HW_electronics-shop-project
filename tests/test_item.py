@@ -15,11 +15,17 @@ def item4():
 
 
 def test_calculate_total_price(item3, item4):
+    """
+    Когда мы создаем класс со значением Х, Y, Z, то calculate_total_price вернет нам Y * Z
+    """
     assert item3.calculate_total_price() == 75000
     assert item4.calculate_total_price() == 90000
 
 
 def test_apply_discount(item3, item4):
+    """
+    Когда мы создаем класс со значением Х, Y, Z, то apply_discount вернет нам Y * 0.5(уровень цены с учетом скидки)
+    """
     Item.pay_rate = 0.5
     item3.apply_discount()
     item4.apply_discount()
