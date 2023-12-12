@@ -44,5 +44,24 @@ def test_apply_discount(item3, item4):
 
 
 def test_string_to_number(num1, num2):
+    """
+    Проверка перевода из str в int
+    """
     assert Item.string_to_number(num1) == 5
     assert Item.string_to_number(num2) == 7
+
+
+def test_repr(item3, item4):
+    """
+    Проверка метода __repr__
+    """
+    assert repr(item3) == "Item('Телевизор', 15000, 5)"
+    assert repr(item4) == "Item('Холодильник', 30000, 3)"
+
+
+def test_str(item3, item4):
+    """
+    Проверка метода __str__
+    """
+    assert str(item3) == 'Телевизор'
+    assert str(item4) == 'Холодильник'
