@@ -30,7 +30,7 @@ class Item:
     def __add__(self, other):
         if isinstance(other, Item):
             return self.quantity + other.quantity
-        return None
+        raise ValueError
 
     @property
     def name(self):

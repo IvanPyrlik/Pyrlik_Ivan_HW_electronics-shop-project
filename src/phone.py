@@ -16,10 +16,10 @@ class Phone(Item):
 
     @number_of_sim.setter
     def number_of_sim(self, num_of_sim):
-        if int(num_of_sim) > 0:
-            self.__number_of_sim = num_of_sim
+        if int(num_of_sim) != num_of_sim or num_of_sim <= 0:
+            raise ValueError
         else:
-            return ValueError
+            self.__number_of_sim = num_of_sim
 
     def __repr__(self):
         return f'{self.__class__.__name__}'f'(\'{self.name}\', {self.price}, {self.quantity}, {self.number_of_sim})'

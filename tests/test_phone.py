@@ -13,6 +13,11 @@ def phone3():
     return Phone("Honor", 90_000, 6, 2)
 
 
+@pytest.fixture
+def phone4():
+    return Phone("Iron", 20_000, 3, 0)
+
+
 def test_repr(phone2, phone3):
     """
     Проверка метода __repr__
@@ -29,9 +34,11 @@ def test_str(phone2, phone3):
     assert str(phone3) == 'Honor'
 
 
-def test_number_of_sim(phone2, phone3):
+def test_number_of_sim(phone4):
     """
     Проверка number_of_sim
     """
-    assert phone2.number_of_sim == 1
-    assert phone3.number_of_sim == 2
+    with pytest.raises(ValueError):
+        phone4.number_of_sim = 0
+        phone4.number_of_sim = -1
+        phone4.number_of_sim = 1.6
