@@ -2,6 +2,7 @@
 import pytest
 
 from src.item import Item
+from src.phone import Phone
 
 
 @pytest.fixture
@@ -22,6 +23,11 @@ def num1():
 @pytest.fixture()
 def num2():
     return '7.0'
+
+
+@pytest.fixture
+def phone2():
+    return Phone("Samsung", 100_000, 3, 1)
 
 
 def test_calculate_total_price(item3, item4):
@@ -65,3 +71,11 @@ def test_str(item3, item4):
     """
     assert str(item3) == 'Телевизор'
     assert str(item4) == 'Холодильник'
+
+
+def test_add(item3, item4, phone2):
+    """
+    Проверка метода __add__
+    """
+    assert item3 + item4 == 8
+    assert phone2 + item3 == 8
