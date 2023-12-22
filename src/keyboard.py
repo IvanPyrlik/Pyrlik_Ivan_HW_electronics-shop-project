@@ -12,13 +12,6 @@ class MixinLog:
     def language(self):
         return self.__language
 
-    @language.setter
-    def language(self, new_language: str):
-        if new_language != 'EN' or new_language != 'RU':
-            raise AttributeError
-        else:
-            self.__language = new_language
-
     def change_lang(self):
         """
         Метод для изменения языка.
