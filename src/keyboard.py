@@ -24,9 +24,5 @@ class MixinLog:
 
 
 class Keyboard(Item, MixinLog):
-    """
-    Создание экземпляра подкласса Keyboard.
-    """
-    def __init__(self, name: str, price: float, quantity: int):
-        super().__init__(name, price, quantity)
+    pass
 
