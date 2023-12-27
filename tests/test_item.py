@@ -30,6 +30,18 @@ def phone2():
     return Phone("Samsung", 100_000, 3, 1)
 
 
+@pytest.fixture
+def file1():
+    file1 = '../tests/items.csv'
+    return file1
+
+
+@pytest.fixture
+def file2():
+    file2 = '../tests/test_items.csv'
+    return file2
+
+
 def test_calculate_total_price(item3, item4):
     """
     Когда мы создаем класс со значением Х, Y, Z, то calculate_total_price вернет нам Y * Z
@@ -79,3 +91,8 @@ def test_add(item3, item4, phone2):
     """
     assert item3 + item4 == 8
     assert phone2 + item3 == 8
+
+
+def test_instantiate_from_csv(file1, file2):
+    Item.instantiate_from_csv(file1)    #Тест на отсутствие файла
+    Item.instantiate_from_csv(file2)    #Тест на отсутствие данных
