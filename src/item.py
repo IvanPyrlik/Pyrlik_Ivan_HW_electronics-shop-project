@@ -63,9 +63,7 @@ class Item:
                     else:
                         print(cls(row['name'], row['price'], row['quantity']))
         except FileNotFoundError:
-            print('Отсутствует файл item.csv.')
-
-
+            raise FileNotFoundError('Отсутствует файл item.csv.')
 
     @staticmethod
     def string_to_number(num: str):
